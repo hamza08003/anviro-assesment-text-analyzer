@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from typing import Dict
+from typing import Dict, Any
 import logging
 
 from app.sentiment import analyze_sentiment
@@ -22,7 +22,7 @@ class TextInput(BaseModel):
 
 
 class AnalysisResponse(BaseModel):
-    sentiment: Dict[str, any]
+    sentiment: Dict[str, Any]
     summary: str
     original_length: int
 
@@ -79,4 +79,3 @@ async def analyze_text(input_data: TextInput):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-    

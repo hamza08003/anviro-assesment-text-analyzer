@@ -1,6 +1,3 @@
-"""
-Sentiment analysis module using TextBlob
-"""
 from textblob import TextBlob
 from typing import Dict
 
